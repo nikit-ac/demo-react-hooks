@@ -1,0 +1,15 @@
+.Photos {
+    margin: 20px;
+    flex-flow: wrap;
+    justify-content: center;
+    display: flex;
+}
+.Photo {
+    display: inline;
+    max-width: 350px;
+    margin: 7px;
+    cursor: pointer;
+}
+.Photo img {
+    width: 100%;
+}
