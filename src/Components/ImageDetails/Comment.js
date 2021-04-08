@@ -2,11 +2,11 @@ import React from 'react';
 import './Comment.css';
 
 function Comment(props) {
-
+    const date = new Date(props.date);
     return (
-        <div className="comment">
-            <div className="date">18.12.19</div>
-            <div className="content">Nice place</div>
+        <div className="comment" data-id={props.id}>
+            <time className="date" dateTime={date.toDateString()}>{date.toDateString()}</time>
+            <div className="content">{props.text}</div>
         </div>
     );
 }

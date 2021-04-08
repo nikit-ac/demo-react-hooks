@@ -17,7 +17,7 @@ function Photos() {
     return (
         <div className="Photos">
             {urls.map((imageData) => {
-                return (<Photo url={imageData.url} id={imageData.id} />)
+                return (<Photo url={imageData.url} id={imageData.id} key={imageData.id}/>)
             })}
         </div>
     );

@@ -7,7 +7,7 @@ function Photo(props) {
 
     return (
         <div className="Photo">
-            <img src={props.url} alt={'image-' + props.id} onClick={() => handleModal('a s df lb fjhsdbkhj fbsd fshd fbjsd fbsdjsd')}/>
+            <img src={props.url} alt={'image-' + props.id} onClick={() => handleModal(props.id)}/>
         </div>
     );
 }

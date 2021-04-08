@@ -5,8 +5,9 @@ function Comments(props) {
 
     return (
         <div className="comments">
-            <Comment />
-            <Comment />
+                {props.commentsData.map((commentData) => {
+                    return (<Comment key={commentData.id} text={commentData.text} date={commentData.date}/>)
+                })}
         </div>
     );
 }
