@@ -6,7 +6,7 @@ import AddCommentForm from "./ImageDetails/AddCommentForm"
 import Comments from "./ImageDetails/Comments"
 
 const ImageDetails = () => {
-    let { modalContent, handleModal, modal } = React.useContext(ModalContext);
+    let { imageId, handleModal, modal } = React.useContext(ModalContext);
     if (modal) {
         return ReactDOM.createPortal(
             <div className="modal-overlay">

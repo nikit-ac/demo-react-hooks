@@ -2,16 +2,16 @@ import React from "react";
 
 const useModal = () => {
   let [modal, setModal] = React.useState(false);
-  let [modalContent, setModalContent] = React.useState("I'm the Modal Content");
+  let [imageId, setImageId] = React.useState(null);
 
-  let handleModal = (content = false) => {
+  let handleModal = (imageId = null) => {
     setModal(!modal);
-    if (content) {
-      setModalContent(content);
+    if (imageId) {
+      setImageId(imageId);
     }
   };
 
-  return { modal, handleModal, modalContent };
+  return { modal, handleModal, imageId };
 };
 
 export default useModal;
