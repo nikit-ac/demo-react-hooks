@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import './Photo.css';
 import Photo from "./Photo";
-import axios from 'axios';
+import apiClient from './../Helpers/ApiClient';
 
 function Photos() {
     useEffect(() => {
         (async () => {
-            const urls = await axios.get('https://boiling-refuge-66454.herokuapp.com/images');
+            const urls = await apiClient.get('/images');
             setUrls(urls.data);
         })();
     }, []);
