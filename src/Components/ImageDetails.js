@@ -1,14 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import { ModalContext } from "./../Context/ModalContext";
 import './ImageDetails.css';
 import AddCommentForm from "./ImageDetails/AddCommentForm"
 import Comments from "./ImageDetails/Comments"
 import apiClient from "../Helpers/ApiClient";
+import CommentsContext from "../Context/CommentsContext";
 
 const ImageDetails = () => {
 
     const [imageData, setImageData] = useState(false);
+    const setComments = useContext(CommentsContext)[1];
 
     let { imageId, handleModal, modal } = React.useContext(ModalContext);
 
@@ -16,12 +18,13 @@ const ImageDetails = () => {
         async function fetchData() {
             let response = await apiClient.get('/images/' + imageId);
             setImageData(response.data);
+            setComments(response.data.comments)
         }
 
         if (imageId) {
             fetchData()
         }
-    }, [imageId])
+    }, [imageId, setComments])
 
     if (modal && imageData) {
         return ReactDOM.createPortal(
@@ -32,7 +35,7 @@ const ImageDetails = () => {
                         <img src={imageData.url} alt={imageData.id} />
                         <AddCommentForm imageId={imageData.id} />
                     </div>
-                    <Comments commentsData={imageData.comments} />
+                    <Comments />
                 </div>
             </div>,
             document.querySelector("#modal-root")
